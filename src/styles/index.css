@@ -16,4 +16,38 @@
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/80 focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-shadow duration-200;
   }
+
+  .animate-contour-draw {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: drawContour 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  
+  .animate-contour-draw-slow {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: drawContour 3.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  .animate-contour-draw-fast {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: drawContour 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+}
+
+@keyframes drawContour {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-contour-draw,
+  .animate-contour-draw-slow,
+  .animate-contour-draw-fast {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    stroke-dasharray: none !important;
+  }
 }

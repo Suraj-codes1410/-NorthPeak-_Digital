@@ -8,6 +8,7 @@ import { SectionWrapper } from './components/layout/SectionWrapper';
 import { ArrowRight, Mail, Sparkles, Send, Check, Settings } from 'lucide-react';
 import { BUDGET_OPTIONS } from './lib/constants';
 import { Navbar } from './components/layout/Navbar';
+import { Hero } from './components/sections/Hero';
 
 function App() {
   // Demo states for FormFields
@@ -31,7 +32,9 @@ function App() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      {/* Design System Header */}
+      <main>
+        <Hero />
+        {/* Design System Header */}
       <header className="border-b border-border py-16 md:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -491,6 +494,8 @@ function App() {
           </Card>
         </div>
       </SectionWrapper>
+
+      </main>
 
       {/* Footer Design System */}
       <footer className="border-t border-border py-12 bg-surface text-center">
