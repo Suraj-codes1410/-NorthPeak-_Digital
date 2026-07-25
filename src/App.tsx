@@ -5,6 +5,7 @@ import { Work } from './components/sections/Work';
 import { Results } from './components/sections/Results';
 import { Pricing } from './components/sections/Pricing';
 import { Contact } from './components/sections/Contact';
+import { AssessmentAttribution } from './components/sections/AssessmentAttribution';
 import { Footer } from './components/sections/Footer';
 
 function App() {
@@ -29,9 +30,12 @@ function App() {
 
         {/* Phase 9: Contact Section */}
         <Contact />
+
+        {/* Phase 10: Assessment Attribution Section */}
+        <AssessmentAttribution />
       </main>
 
-      {/* Phase 10: Footer Section */}
+      {/* Phase 11: Footer Section */}
       <Footer />
     </div>
   );
