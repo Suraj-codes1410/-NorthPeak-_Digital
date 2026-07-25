@@ -4,6 +4,7 @@ import { Hero } from './components/sections/Hero';
 import { Services } from './components/sections/Services';
 import { Work } from './components/sections/Work';
 import { Results } from './components/sections/Results';
+import { Pricing } from './components/sections/Pricing';
 import { Button } from './components/ui/Button';
 import { Card } from './components/ui/Card';
 import { FormField } from './components/ui/FormField';
@@ -38,20 +39,8 @@ function App() {
         {/* Phase 7: Results & Testimonials Section */}
         <Results />
 
-        {/* Section: Pricing Placeholder (to support navigation anchors) */}
-        <SectionWrapper
-          id="pricing"
-          eyebrow="04 / Investment"
-          heading="transparent pricing"
-          description="Flexible, outcome-driven pricing tiers tailored to your creative engineering scope. (Detailed tables will be integrated in Phase 7)."
-          alternateBg
-        >
-          <div className="text-center py-16 border border-dashed border-border rounded-card bg-surface/50">
-            <p className="text-xs text-secondary font-mono uppercase tracking-widest">
-              PRICING TIERS PLACEHOLDER
-            </p>
-          </div>
-        </SectionWrapper>
+        {/* Phase 8: Pricing Section */}
+        <Pricing />
 
         {/* Section: Contact Form */}
         <SectionWrapper

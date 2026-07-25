@@ -6,6 +6,7 @@ export const pricingPlans: Plan[] = [
     price: '$2,999',
     tagline: 'Ideal for early-stage teams looking to launch a bespoke, high-performance web experience.',
     featured: false,
+    ctaText: 'Book Discovery Call',
     features: [
       { text: 'Bespoke Scandinavian UI design', included: true },
       { text: 'Responsive React & Tailwind engineering', included: true },
@@ -20,6 +21,7 @@ export const pricingPlans: Plan[] = [
     price: '$4,999',
     tagline: 'Bespoke design system construction and multi-page application scaling.',
     featured: true,
+    ctaText: 'Start a Project',
     features: [
       { text: 'Bespoke Scandinavian UI design', included: true },
       { text: 'Responsive React & Tailwind engineering', included: true },
@@ -34,6 +36,7 @@ export const pricingPlans: Plan[] = [
     price: 'Custom',
     tagline: 'Full enterprise-level product planning, audit alignment, and front-end scaling support.',
     featured: false,
+    ctaText: 'Request Proposal',
     features: [
       { text: 'Custom creative engineering audits', included: true },
       { text: 'Reusable React component system delivery', included: true },
@@ -44,3 +47,10 @@ export const pricingPlans: Plan[] = [
     ],
   },
 ];
+
+export const pricingHeader = {
+  eyebrow: 'PICK YOUR ROUTE',
+  heading: 'Choose the engagement that fits your climb.',
+  description: 'Each engagement is designed around different project scopes while maintaining the same attention to craftsmanship and engineering quality.',
+  bottomNote: "Every engagement begins with a collaborative discovery session to ensure we're solving the right problem.",
+};

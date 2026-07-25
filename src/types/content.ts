@@ -60,6 +60,7 @@ export interface Plan {
   tagline: string;
   features: PricingFeature[];
   featured: boolean;
+  ctaText: string;
 }
 
 export interface FooterLink {
