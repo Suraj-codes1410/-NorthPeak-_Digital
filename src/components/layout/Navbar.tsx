@@ -116,6 +116,16 @@ export const Navbar: React.FC = () => {
                 : 'bg-transparent border-b border-transparent py-6'
             ]
       )}
+      onClick={
+        isOpen
+          ? (e) => {
+              if (e.target === e.currentTarget) {
+                setIsOpen(false);
+                hamburgerRef.current?.focus();
+              }
+            }
+          : undefined
+      }
     >
       {!isOpen ? (
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full flex items-center justify-between">
@@ -194,6 +204,12 @@ export const Navbar: React.FC = () => {
           aria-modal="true"
           aria-label="Mobile navigation menu"
           className="w-full h-full flex flex-col justify-between max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom duration-250 motion-reduce:transition-none"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setIsOpen(false);
+              hamburgerRef.current?.focus();
+            }
+          }}
         >
           {/* Header Row */}
           <div className="flex items-center justify-between w-full">
