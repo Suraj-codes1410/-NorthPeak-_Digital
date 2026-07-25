@@ -32,3 +32,9 @@ export const servicesData: Service[] = [
     description: 'Developing smooth micro-animations and visual storytelling layers that capture your brand’s calm, premium essence.',
   },
 ];
+
+export const servicesHeader = {
+  eyebrow: 'WHAT WE DO',
+  heading: 'Engineering digital experiences that are elegant, performant, and built to scale.',
+  description: 'We partner with ambitious brands to design, build, and optimize websites that perform as beautifully as they look.',
+};
