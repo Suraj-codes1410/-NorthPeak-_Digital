@@ -18,7 +18,7 @@ export const Results: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 w-full text-left my-4">
         {metrics.map((metric) => (
           <div key={metric.label} className="flex flex-col gap-3">
-            <span className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-primary leading-none">
+            <span className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-primary leading-none whitespace-nowrap">
               <CountUp value={metric.value} suffix={metric.suffix} />
             </span>
             <span className="font-mono text-[10px] tracking-widest text-secondary uppercase max-w-[28ch] leading-relaxed">

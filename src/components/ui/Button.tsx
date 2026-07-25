@@ -37,7 +37,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         whileHover={shouldReduceMotion || disabled || isLoading ? undefined : buttonHover}
         whileTap={shouldReduceMotion || disabled || isLoading ? undefined : buttonTap}
         className={cn(
-          'group inline-flex items-center justify-center font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-300 rounded-lg px-6 py-3.5 focus-ring select-none',
+          'group inline-flex items-center justify-center font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-300 rounded-lg px-6 py-4 min-h-[44px] focus-ring select-none',
           variant === 'primary' && [
             'bg-primary text-background border border-primary',
             'hover:bg-accent hover:border-accent hover:text-white',

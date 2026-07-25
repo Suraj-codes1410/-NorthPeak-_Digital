@@ -197,7 +197,7 @@ export const Navbar: React.FC = () => {
             ref={hamburgerRef}
             type="button"
             onClick={() => setIsOpen(true)}
-            className="md:hidden flex items-center justify-center p-2 text-primary hover:text-accent transition-colors duration-200 focus-ring rounded-lg"
+            className="md:hidden flex items-center justify-center p-2.5 min-w-[44px] min-h-[44px] text-primary hover:text-accent transition-colors duration-200 focus-ring rounded-lg"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label="Open navigation menu"
@@ -233,7 +233,7 @@ export const Navbar: React.FC = () => {
                 setIsOpen(false);
                 hamburgerRef.current?.focus();
               }}
-              className="flex items-center justify-center p-2 text-primary hover:text-accent transition-colors duration-200 focus-ring rounded-lg"
+              className="flex items-center justify-center p-2.5 min-w-[44px] min-h-[44px] text-primary hover:text-accent transition-colors duration-200 focus-ring rounded-lg"
               aria-label="Close navigation menu"
             >
               <X className="w-6 h-6" />

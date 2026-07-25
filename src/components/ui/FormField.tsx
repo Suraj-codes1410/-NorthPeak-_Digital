@@ -51,7 +51,7 @@ export const FormField = React.forwardRef<
     const helperId = `${inputId}-helper`;
 
     const inputStyles = cn(
-      'w-full bg-surface border border-border rounded-lg px-4 py-3 text-sm text-primary placeholder-secondary/50 font-sans transition-all duration-200 outline-none',
+      'w-full bg-surface border border-border rounded-lg px-4 py-3.5 text-base md:text-sm text-primary placeholder-secondary/50 font-sans transition-all duration-200 outline-none min-h-[44px]',
       'hover:border-primary/30',
       'focus-ring focus:border-primary',
       'disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-surface-alt',
