@@ -3,6 +3,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
 import { Services } from './components/sections/Services';
 import { Work } from './components/sections/Work';
+import { Results } from './components/sections/Results';
 import { Button } from './components/ui/Button';
 import { Card } from './components/ui/Card';
 import { FormField } from './components/ui/FormField';
@@ -33,6 +34,9 @@ function App() {
 
         {/* Phase 6: Selected Work Section */}
         <Work />
+
+        {/* Phase 7: Results & Testimonials Section */}
+        <Results />
 
         {/* Section: Pricing Placeholder (to support navigation anchors) */}
         <SectionWrapper

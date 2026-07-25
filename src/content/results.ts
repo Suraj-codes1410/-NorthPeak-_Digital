@@ -32,3 +32,9 @@ export const testimonials: Testimonial[] = [
     company: 'Aura Health',
   },
 ];
+
+export const resultsHeader = {
+  eyebrow: 'WHAT IT ADDS UP TO',
+  heading: 'Results that speak louder than deliverables.',
+  description: 'Focus on measurable business impact rather than features.',
+};
