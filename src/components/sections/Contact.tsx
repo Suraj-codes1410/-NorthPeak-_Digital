@@ -31,9 +31,8 @@ export const Contact: React.FC = () => {
     }
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (_data: ContactFormData) => {
     setIsSubmittingLocal(true);
-    console.log('Inquiry submission data:', data);
     // Simulate submission delay
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmittingLocal(false);
@@ -47,6 +46,12 @@ export const Contact: React.FC = () => {
 
   return (
     <SectionWrapper id="contact" className="relative">
+      {/* Screen Reader Live Region for Form Submission States */}
+      <div className="sr-only" role="status" aria-live="polite">
+        {isSubmittingLocal && "Submitting your project inquiry, please wait..."}
+        {isSuccess && "Inquiry submitted successfully. Thank you!"}
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 w-full items-start">
         {/* Left Column: Information Panel (45%) */}
         <div className="lg:col-span-5 flex flex-col items-start text-left space-y-6 lg:sticky lg:top-28">

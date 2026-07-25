@@ -11,8 +11,14 @@ import { Footer } from './components/sections/Footer';
 function App() {
   return (
     <div className="min-h-screen bg-background">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-surface text-primary border border-border px-4 py-2 rounded-md font-mono text-xs shadow-md outline-none focus-ring"
+      >
+        Skip to main content
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         {/* Phase 4: Hero Section */}
         <Hero />
 
