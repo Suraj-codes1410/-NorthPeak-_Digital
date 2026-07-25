@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { cn } from '../../utils/cn';
+import { buttonHover, buttonTap } from '../../lib/motion';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
@@ -7,6 +9,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
 }
+
+const MotionButton = motion.button as any;
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -23,22 +27,26 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    const shouldReduceMotion = useReducedMotion();
+
     return (
-      <button
+      <MotionButton
         ref={ref}
         type={type}
         disabled={disabled || isLoading}
+        whileHover={shouldReduceMotion || disabled || isLoading ? undefined : buttonHover}
+        whileTap={shouldReduceMotion || disabled || isLoading ? undefined : buttonTap}
         className={cn(
-          'inline-flex items-center justify-center font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-300 rounded-lg px-6 py-3.5 focus-ring select-none active:scale-[0.98]',
+          'group inline-flex items-center justify-center font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-300 rounded-lg px-6 py-3.5 focus-ring select-none',
           variant === 'primary' && [
             'bg-primary text-background border border-primary',
             'hover:bg-accent hover:border-accent hover:text-white',
-            'disabled:bg-primary/50 disabled:border-transparent'
+            'disabled:bg-primary/50 disabled:border-transparent',
           ],
           variant === 'secondary' && [
             'bg-transparent text-primary border border-border',
             'hover:bg-surface-alt hover:border-primary',
-            'disabled:border-border/50 disabled:text-primary/50'
+            'disabled:border-border/50 disabled:text-primary/50',
           ],
           className
         )}
@@ -67,19 +75,20 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </svg>
         )}
         {!isLoading && leftIcon && (
-          <span className="mr-2 inline-flex items-center justify-center" aria-hidden="true">
+          <span className="mr-2 inline-flex items-center justify-center transition-transform duration-200 group-hover:-translate-x-0.5" aria-hidden="true">
             {leftIcon}
           </span>
         )}
         <span>{children}</span>
         {!isLoading && rightIcon && (
-          <span className="ml-2 inline-flex items-center justify-center" aria-hidden="true">
+          <span className="ml-2 inline-flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true">
             {rightIcon}
           </span>
         )}
-      </button>
+      </MotionButton>
     );
   }
 );
 
 Button.displayName = 'Button';
+export default Button;

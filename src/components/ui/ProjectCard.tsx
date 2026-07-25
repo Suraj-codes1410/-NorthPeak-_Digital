@@ -1,16 +1,17 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Card } from './Card';
 import type { Project } from '../../types/content';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { staggerChild, cardHover } from '../../lib/motion';
 
 interface ProjectCardProps {
   project: Project;
-  index: number;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-  const animationDelay = `${index * 120}ms`;
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const shouldReduceMotion = useReducedMotion();
 
   const renderAbstractVisual = () => {
     const baseVisualStyles =
@@ -142,81 +143,86 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   };
 
   return (
-    <Card
-      tabIndex={0}
-      style={{ animationDelay }}
-      className={cn(
-        'group flex flex-col justify-between h-full bg-surface border border-border/60 rounded-card overflow-hidden p-0 shadow-premium',
-        'cursor-pointer outline-none focus-ring',
-        'hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-[0_20px_40px_-6px_rgba(17,24,39,0.07)]',
-        'focus-visible:-translate-y-1.5 focus-visible:border-accent/40 focus-visible:shadow-[0_20px_40px_-6px_rgba(17,24,39,0.07)]',
-        'transition-all duration-300 animate-fade-in-up'
-      )}
-      aria-label={`${project.name} Portfolio Project`}
+    <motion.div
+      variants={shouldReduceMotion ? undefined : staggerChild()}
+      whileHover={shouldReduceMotion ? undefined : cardHover}
+      whileFocus={shouldReduceMotion ? undefined : cardHover}
+      className="h-full outline-none"
     >
-      {/* Visual Composition Top */}
-      {renderAbstractVisual()}
+      <Card
+        tabIndex={0}
+        className={cn(
+          'group flex flex-col justify-between h-full bg-surface border border-border/60 rounded-card overflow-hidden p-0 shadow-premium',
+          'cursor-pointer outline-none focus-ring',
+          'transition-all duration-300',
+          'hover:border-accent/40 focus-visible:border-accent/40'
+        )}
+        aria-label={`${project.name} Portfolio Project`}
+      >
+        {/* Visual Composition Top */}
+        {renderAbstractVisual()}
 
-      {/* Card Content Details */}
-      <div className="p-8 flex flex-col justify-between flex-grow">
-        <div>
-          {/* Title */}
-          <h3 className="font-display text-2xl font-medium text-primary mb-1 text-left">
-            {project.name}
-          </h3>
+        {/* Card Content Details */}
+        <div className="p-8 flex flex-col justify-between flex-grow">
+          <div>
+            {/* Title */}
+            <h3 className="font-display text-2xl font-medium text-primary mb-1 text-left">
+              {project.name}
+            </h3>
 
-          {/* Metadata Row */}
-          <div className="grid grid-cols-3 gap-2 border-t border-b border-border/40 py-4 my-5 text-left">
-            <div>
-              <span className="block text-[8px] font-mono text-secondary uppercase tracking-widest mb-1.5 select-none">
-                Industry
-              </span>
-              <span
-                className="block text-[10px] font-mono font-semibold text-primary uppercase truncate"
-                title={project.industry}
-              >
-                {project.industry.split(' ')[0]}
-              </span>
+            {/* Metadata Row */}
+            <div className="grid grid-cols-3 gap-2 border-t border-b border-border/40 py-4 my-5 text-left">
+              <div>
+                <span className="block text-[8px] font-mono text-secondary uppercase tracking-widest mb-1.5 select-none">
+                  Industry
+                </span>
+                <span
+                  className="block text-[10px] font-mono font-semibold text-primary uppercase truncate"
+                  title={project.industry}
+                >
+                  {project.industry.split(' ')[0]}
+                </span>
+              </div>
+              <div>
+                <span className="block text-[8px] font-mono text-secondary uppercase tracking-widest mb-1.5 select-none">
+                  Timeline
+                </span>
+                <span className="block text-[10px] font-mono font-semibold text-primary uppercase">
+                  {project.timeline}
+                </span>
+              </div>
+              <div>
+                <span className="block text-[8px] font-mono text-secondary uppercase tracking-widest mb-1.5 select-none">
+                  Tech Stack
+                </span>
+                <span
+                  className="block text-[10px] font-mono font-semibold text-primary truncate"
+                  title={project.stack.join(', ')}
+                >
+                  {project.stack[0]} • {project.stack[1]}
+                </span>
+              </div>
             </div>
-            <div>
-              <span className="block text-[8px] font-mono text-secondary uppercase tracking-widest mb-1.5 select-none">
-                Timeline
-              </span>
-              <span className="block text-[10px] font-mono font-semibold text-primary uppercase">
-                {project.timeline}
-              </span>
-            </div>
-            <div>
-              <span className="block text-[8px] font-mono text-secondary uppercase tracking-widest mb-1.5 select-none">
-                Tech Stack
-              </span>
-              <span
-                className="block text-[10px] font-mono font-semibold text-primary truncate"
-                title={project.stack.join(', ')}
-              >
-                {project.stack[0]} • {project.stack[1]}
-              </span>
+
+            {/* Outcome highlight */}
+            <div className="text-left border-l-2 border-gold/40 pl-3 my-4">
+              <p className="font-sans text-xs font-medium text-primary leading-relaxed italic">
+                {project.outcome}
+              </p>
             </div>
           </div>
 
-          {/* Outcome highlight */}
-          <div className="text-left border-l-2 border-gold/40 pl-3 my-4">
-            <p className="font-sans text-xs font-medium text-primary leading-relaxed italic">
-              {project.outcome}
-            </p>
+          {/* Explore CTA Link */}
+          <div className="mt-6 flex items-center gap-1.5 text-xs font-mono font-semibold tracking-widest uppercase text-primary transition-all duration-300 group-hover:text-accent group-focus-visible:text-accent">
+            <span className="relative select-none">
+              Explore Project
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-accent scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100" />
+            </span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
           </div>
         </div>
-
-        {/* Explore CTA Link */}
-        <div className="mt-6 flex items-center gap-1.5 text-xs font-mono font-semibold tracking-widest uppercase text-primary transition-all duration-300 group-hover:text-accent group-focus-visible:text-accent">
-          <span className="relative select-none">
-            Explore Project
-            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-accent scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100" />
-          </span>
-          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-        </div>
-      </div>
-    </Card>
+      </Card>
+    </motion.div>
   );
 };
 

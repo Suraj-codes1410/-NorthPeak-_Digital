@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { navLinks } from '../../content/nav';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { DURATIONS, EASINGS } from '../../lib/motion';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +13,7 @@ export const Navbar: React.FC = () => {
 
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   // Extract section IDs from navigation content schema for Scroll Spy
   const sectionIds = React.useMemo(() => {
@@ -49,13 +52,11 @@ export const Navbar: React.FC = () => {
         const last = focusable[focusable.length - 1];
 
         if (e.shiftKey) {
-          // Shift + Tab (Backward cycling)
           if (document.activeElement === first) {
             last.focus();
             e.preventDefault();
           }
         } else {
-          // Tab (Forward cycling)
           if (document.activeElement === last) {
             first.focus();
             e.preventDefault();
@@ -64,17 +65,18 @@ export const Navbar: React.FC = () => {
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
 
-    // Set initial focus to close button
-    const focusable = modalRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
-    if (focusable && focusable.length > 0) {
-      focusable[0].focus();
+  // Lock vertical scrolling on mobile when navigation overlay is active
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
   }, [isOpen]);
@@ -83,23 +85,29 @@ export const Navbar: React.FC = () => {
     e.preventDefault();
     setIsOpen(false);
 
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      // Update history URL hash without jumping
-      window.history.pushState(null, '', href);
+    if (href.startsWith('#')) {
+      const section = document.getElementById(href.slice(1));
+      if (section) {
+        // Delay offset scroll slightly if mobile menu is closing to prevent layout lag
+        const delay = isOpen ? 150 : 0;
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+        }, delay);
+      }
     }
   };
 
   const handleCtaClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsOpen(false);
-
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, '', '#contact');
+      const delay = isOpen ? 150 : 0;
+      setTimeout(() => {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', '#contact');
+      }, delay);
     }
   };
 
@@ -113,7 +121,7 @@ export const Navbar: React.FC = () => {
               'sticky top-0 left-0 w-full',
               isScrolled
                 ? 'bg-background/90 backdrop-blur-md border-b border-border/50 shadow-sm py-4'
-                : 'bg-transparent border-b border-transparent py-6'
+                : 'bg-transparent border-b border-transparent py-6',
             ]
       )}
       onClick={
@@ -156,7 +164,7 @@ export const Navbar: React.FC = () => {
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className={cn(
-                    'group relative py-2 text-sm font-medium tracking-wide transition-colors duration-300 font-sans',
+                    'group relative text-xs font-mono font-medium uppercase tracking-widest py-2 transition-colors duration-200 outline-none focus:text-accent',
                     isActive ? 'text-accent' : 'text-secondary hover:text-accent'
                   )}
                   aria-current={isActive ? 'page' : undefined}
@@ -198,12 +206,15 @@ export const Navbar: React.FC = () => {
           </button>
         </div>
       ) : (
-        <div
+        <motion.div
           ref={modalRef}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation menu"
-          className="w-full h-full flex flex-col justify-between max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom duration-250 motion-reduce:transition-none"
+          initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.97, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: DURATIONS.normal, ease: EASINGS.standard }}
+          className="w-full h-full flex flex-col justify-between max-w-7xl mx-auto"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setIsOpen(false);
@@ -267,8 +278,9 @@ export const Navbar: React.FC = () => {
               Warm Editorial Engineering
             </span>
           </div>
-        </div>
+        </motion.div>
       )}
     </header>
   );
 };
+export default Navbar;

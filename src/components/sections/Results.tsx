@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionWrapper } from '../layout/SectionWrapper';
 import { CountUp } from '../ui/CountUp';
 import { TestimonialCard } from '../ui/TestimonialCard';
+import { StaggerGroup } from '../ui/StaggerGroup';
 import { metrics, testimonials, resultsHeader } from '../../content/results';
 
 export const Results: React.FC = () => {
@@ -30,14 +31,14 @@ export const Results: React.FC = () => {
       {/* Decorative Understated Divider */}
       <div className="w-full h-px bg-border/80 my-16 md:my-20" aria-hidden="true" />
 
-      {/* Testimonials Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 w-full">
-        {testimonials.map((testimonial, index) => (
+      {/* Testimonials Grid Staggered */}
+      <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 w-full">
+        {testimonials.map((testimonial) => (
           <div key={testimonial.name} className="h-full">
-            <TestimonialCard testimonial={testimonial} index={index} />
+            <TestimonialCard testimonial={testimonial} />
           </div>
         ))}
-      </div>
+      </StaggerGroup>
     </SectionWrapper>
   );
 };

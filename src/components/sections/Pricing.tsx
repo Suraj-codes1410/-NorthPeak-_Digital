@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionWrapper } from '../layout/SectionWrapper';
 import { PricingCard } from '../ui/PricingCard';
 import { ContourArt } from '../ui/ContourArt';
+import { StaggerGroup } from '../ui/StaggerGroup';
 import { pricingPlans, pricingHeader } from '../../content/pricing';
 
 export const Pricing: React.FC = () => {
@@ -22,14 +23,14 @@ export const Pricing: React.FC = () => {
         <ContourArt />
       </div>
 
-      {/* Pricing Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 w-full items-stretch z-10 relative">
-        {pricingPlans.map((plan, index) => (
+      {/* Pricing Cards Grid Staggered */}
+      <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 w-full items-stretch z-10 relative">
+        {pricingPlans.map((plan) => (
           <div key={plan.name} className="h-full">
-            <PricingCard plan={plan} index={index} />
+            <PricingCard plan={plan} />
           </div>
         ))}
-      </div>
+      </StaggerGroup>
 
       {/* Optional Bottom Note */}
       {pricingHeader.bottomNote && (

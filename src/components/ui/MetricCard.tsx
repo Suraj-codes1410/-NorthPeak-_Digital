@@ -1,9 +1,19 @@
 import React from 'react';
 import { Card } from './Card';
+import { cn } from '../../utils/cn';
 
-export const MetricCard: React.FC = () => {
+interface MetricCardProps {
+  className?: string;
+}
+
+export const MetricCard: React.FC<MetricCardProps> = ({ className }) => {
   return (
-    <Card className="absolute bottom-6 right-6 md:bottom-12 md:right-12 p-4 md:p-5 max-w-[210px] bg-surface/95 backdrop-blur-sm border border-border/50 shadow-premium select-none animate-in fade-in slide-in-from-bottom duration-500 delay-300">
+    <Card
+      className={cn(
+        'p-4 md:p-5 max-w-[210px] bg-surface/95 backdrop-blur-sm border border-border/50 shadow-premium select-none',
+        className
+      )}
+    >
       <div className="flex flex-col gap-3.5">
         <div className="flex items-center gap-2 pb-2 border-b border-border/40">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />

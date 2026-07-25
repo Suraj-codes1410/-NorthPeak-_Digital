@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionWrapper } from '../layout/SectionWrapper';
 import { ProjectCard } from '../ui/ProjectCard';
+import { StaggerGroup } from '../ui/StaggerGroup';
 import { workProjects, workHeader } from '../../content/work';
 
 export const Work: React.FC = () => {
@@ -12,13 +13,13 @@ export const Work: React.FC = () => {
       description={workHeader.description}
       alternateBg={false}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 w-full">
-        {workProjects.map((project, index) => (
+      <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 w-full">
+        {workProjects.map((project) => (
           <div key={project.name} className="h-full">
-            <ProjectCard project={project} index={index} />
+            <ProjectCard project={project} />
           </div>
         ))}
-      </div>
+      </StaggerGroup>
     </SectionWrapper>
   );
 };
