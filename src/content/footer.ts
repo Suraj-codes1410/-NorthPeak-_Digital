@@ -19,3 +19,13 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const creditText = 'Handcrafted by Digital Heroes';
+
+export const footerHeader = {
+  logoText: 'NorthPeak',
+  logoSymbol: '△',
+  email: 'hello@northpeak.digital',
+  location: 'Copenhagen, Denmark',
+  availability: 'Replies within one business day',
+  copyright: '© 2026 NorthPeak Digital. All rights reserved.',
+  closingStatement: 'Designed with clarity. Built with precision.',
+};

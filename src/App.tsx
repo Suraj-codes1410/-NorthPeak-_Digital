@@ -5,6 +5,7 @@ import { Work } from './components/sections/Work';
 import { Results } from './components/sections/Results';
 import { Pricing } from './components/sections/Pricing';
 import { Contact } from './components/sections/Contact';
+import { Footer } from './components/sections/Footer';
 
 function App() {
   return (
@@ -30,12 +31,8 @@ function App() {
         <Contact />
       </main>
 
-      {/* Footer Design System */}
-      <footer className="border-t border-border py-12 bg-surface text-center">
-        <p className="font-mono text-xs text-secondary">
-          NorthPeak Digital © 2026. Handcrafted modular foundation. All rights reserved.
-        </p>
-      </footer>
+      {/* Phase 10: Footer Section */}
+      <Footer />
     </div>
   );
 }
