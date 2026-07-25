@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
 import { Services } from './components/sections/Services';
+import { Work } from './components/sections/Work';
 import { Button } from './components/ui/Button';
 import { Card } from './components/ui/Card';
 import { FormField } from './components/ui/FormField';
@@ -30,19 +31,8 @@ function App() {
         {/* Phase 5: Services Section */}
         <Services />
 
-        {/* Section: Work Placeholder (to support navigation anchors) */}
-        <SectionWrapper
-          id="work"
-          eyebrow="03 / Case Studies"
-          heading="our curated work"
-          description="Fictional case studies showcasing our web design and engineering capabilities. (Detailed layouts will be integrated in Phase 6)."
-        >
-          <div className="text-center py-16 border border-dashed border-border rounded-card bg-surface/50">
-            <p className="text-xs text-secondary font-mono uppercase tracking-widest">
-              PORTFOLIO WORKPLACE PLACEHOLDER
-            </p>
-          </div>
-        </SectionWrapper>
+        {/* Phase 6: Selected Work Section */}
+        <Work />
 
         {/* Section: Pricing Placeholder (to support navigation anchors) */}
         <SectionWrapper

@@ -23,3 +23,9 @@ export const workProjects: Project[] = [
     outcome: 'Designed and shipped a modular learning management system, scaling serverless onboarding to 250k users monthly.',
   },
 ];
+
+export const workHeader = {
+  eyebrow: 'SELECTED WORK',
+  heading: 'Projects built with clarity, performance, and purpose.',
+  description: "Showcase a curated selection of projects that reflect NorthPeak's approach to engineering and digital design.",
+};
