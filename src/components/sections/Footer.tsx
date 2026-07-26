@@ -1,6 +1,12 @@
 import React from 'react';
 import { ContourArt } from '../ui/ContourArt';
-import { footerLinks, socialLinks, companyDescription, footerHeader } from '../../content/footer';
+import {
+  footerLinks,
+  socialLinks,
+  companyDescription,
+  footerHeader,
+  creditText,
+} from '../../content/footer';
 import { ArrowUp, Mail, MapPin, Calendar } from 'lucide-react';
 
 // Custom Lucide-style Brand Icons (since they are deprecated/removed in newer lucide-react versions)
@@ -184,12 +190,21 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Metadata Area */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-mono text-secondary">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <span>{footerHeader.copyright}</span>
+            <span className="hidden sm:inline text-border/60">|</span>
+            <a
+              href="https://digitalheroesco.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors focus-ring outline-none"
+            >
+              {creditText}
+            </a>
           </div>
 
           {/* Closing Statement */}
-          <span className="hidden sm:inline italic select-none">
+          <span className="hidden lg:inline italic select-none">
             {footerHeader.closingStatement}
           </span>
 
