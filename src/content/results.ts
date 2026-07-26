@@ -20,13 +20,15 @@ export const metrics: Metric[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    quote: 'NorthPeak did not just deliver clean code—they established a structured design system that empowered our product teams to ship features with total confidence.',
+    quote:
+      'NorthPeak did not just deliver clean code—they established a structured design system that empowered our product teams to ship features with total confidence.',
     name: 'Helena Sørensen',
     role: 'Head of Product',
     company: 'Vektor Capital',
   },
   {
-    quote: 'Their attention to typographic detail and performance optimization was exceptional. They operate as a natural, highly skilled extension of our engineering division.',
+    quote:
+      'Their attention to typographic detail and performance optimization was exceptional. They operate as a natural, highly skilled extension of our engineering division.',
     name: 'Marcus Thorne',
     role: 'Technical Director',
     company: 'Aura Health',

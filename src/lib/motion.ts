@@ -2,10 +2,10 @@ import type { Variants } from 'framer-motion';
 
 // Motion Durations (seconds)
 export const DURATIONS = {
-  fast: 0.15,      // 150ms
-  normal: 0.25,    // 250ms
-  slow: 0.4,       // 400ms
-  reveal: 0.6,     // 600ms
+  fast: 0.15, // 150ms
+  normal: 0.25, // 250ms
+  slow: 0.4, // 400ms
+  reveal: 0.6, // 600ms
 } as const;
 
 // Easing Curves
@@ -13,7 +13,7 @@ export const EASINGS = {
   standard: [0.25, 1, 0.5, 1], // easeOutQuart (smooth flow)
   entrance: [0.16, 1, 0.3, 1], // easeOutExpo (snappy)
   exit: [0.3, 0.07, 0.19, 0.97], // smooth exit
-  hover: [0.4, 0, 0.2, 1],      // smooth micro-interactions
+  hover: [0.4, 0, 0.2, 1], // smooth micro-interactions
 } as const;
 
 // Transition Distances (px)
@@ -24,7 +24,10 @@ export const DISTANCES = {
 } as const;
 
 // Reusable Framer Motion Animation Variants with explicit number types to prevent literal type inference issues
-export const fadeUpVariants = (distance: number = DISTANCES.medium, duration: number = DURATIONS.normal): Variants => ({
+export const fadeUpVariants = (
+  distance: number = DISTANCES.medium,
+  duration: number = DURATIONS.normal
+): Variants => ({
   hidden: { opacity: 0, y: distance },
   visible: {
     opacity: 1,
@@ -33,7 +36,10 @@ export const fadeUpVariants = (distance: number = DISTANCES.medium, duration: nu
   },
 });
 
-export const fadeDownVariants = (distance: number = DISTANCES.medium, duration: number = DURATIONS.normal): Variants => ({
+export const fadeDownVariants = (
+  distance: number = DISTANCES.medium,
+  duration: number = DURATIONS.normal
+): Variants => ({
   hidden: { opacity: 0, y: -distance },
   visible: {
     opacity: 1,
@@ -42,7 +48,10 @@ export const fadeDownVariants = (distance: number = DISTANCES.medium, duration: 
   },
 });
 
-export const fadeLeftVariants = (distance: number = DISTANCES.medium, duration: number = DURATIONS.normal): Variants => ({
+export const fadeLeftVariants = (
+  distance: number = DISTANCES.medium,
+  duration: number = DURATIONS.normal
+): Variants => ({
   hidden: { opacity: 0, x: distance },
   visible: {
     opacity: 1,
@@ -51,7 +60,10 @@ export const fadeLeftVariants = (distance: number = DISTANCES.medium, duration: 
   },
 });
 
-export const fadeRightVariants = (distance: number = DISTANCES.medium, duration: number = DURATIONS.normal): Variants => ({
+export const fadeRightVariants = (
+  distance: number = DISTANCES.medium,
+  duration: number = DURATIONS.normal
+): Variants => ({
   hidden: { opacity: 0, x: -distance },
   visible: {
     opacity: 1,
@@ -69,7 +81,10 @@ export const scaleInVariants = (duration: number = DURATIONS.normal): Variants =
   },
 });
 
-export const staggerParent = (staggerChildren: number = 0.1, delayChildren: number = 0): Variants => ({
+export const staggerParent = (
+  staggerChildren: number = 0.1,
+  delayChildren: number = 0
+): Variants => ({
   hidden: {},
   visible: {
     transition: {
@@ -79,7 +94,10 @@ export const staggerParent = (staggerChildren: number = 0.1, delayChildren: numb
   },
 });
 
-export const staggerChild = (distance: number = DISTANCES.medium, duration: number = DURATIONS.normal): Variants => ({
+export const staggerChild = (
+  distance: number = DISTANCES.medium,
+  duration: number = DURATIONS.normal
+): Variants => ({
   hidden: { opacity: 0, y: distance },
   visible: {
     opacity: 1,

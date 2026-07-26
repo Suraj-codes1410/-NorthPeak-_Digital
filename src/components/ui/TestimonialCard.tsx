@@ -46,9 +46,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
 
         {/* Author Info */}
         <div className="mt-8 pt-6 border-t border-border/40 text-left">
-          <h4 className="font-display text-lg font-medium text-primary mb-1">
-            {testimonial.name}
-          </h4>
+          <h4 className="font-display text-lg font-medium text-primary mb-1">{testimonial.name}</h4>
           <div className="flex flex-wrap items-center gap-x-2 text-[10px] font-mono uppercase tracking-wider">
             <span className="text-secondary">{testimonial.role}</span>
             <span className="w-1 h-1 rounded-full bg-border" aria-hidden="true" />

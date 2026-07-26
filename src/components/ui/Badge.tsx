@@ -15,7 +15,8 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
           'inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] font-semibold tracking-widest uppercase select-none transition-colors duration-200 border',
           variant === 'accent' && 'bg-accent/5 text-accent border-accent/20',
           variant === 'gold' && 'bg-gold/5 text-gold border-gold/20',
-          variant === 'neutral' && 'bg-surface-alt text-secondary border-border hover:border-secondary/20',
+          variant === 'neutral' &&
+            'bg-surface-alt text-secondary border-border hover:border-secondary/20',
           className
         )}
         {...props}

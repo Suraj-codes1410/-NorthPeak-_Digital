@@ -19,7 +19,7 @@ export const Contact: React.FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
+    formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -27,8 +27,8 @@ export const Contact: React.FC = () => {
       email: '',
       company: '',
       budget: '',
-      message: ''
-    }
+      message: '',
+    },
   });
 
   const onSubmit = async (_data: ContactFormData) => {
@@ -48,8 +48,8 @@ export const Contact: React.FC = () => {
     <SectionWrapper id="contact" className="relative">
       {/* Screen Reader Live Region for Form Submission States */}
       <div className="sr-only" role="status" aria-live="polite">
-        {isSubmittingLocal && "Submitting your project inquiry, please wait..."}
-        {isSuccess && "Inquiry submitted successfully. Thank you!"}
+        {isSubmittingLocal && 'Submitting your project inquiry, please wait...'}
+        {isSuccess && 'Inquiry submitted successfully. Thank you!'}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 w-full items-start">

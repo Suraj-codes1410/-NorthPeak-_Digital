@@ -41,7 +41,7 @@ export const ContourArt: React.FC = () => {
           strokeWidth="0.5"
           className="opacity-30 animate-contour-draw-fast"
         />
-        
+
         {/* Architectural Diagonal Axes */}
         <line
           x1="50"

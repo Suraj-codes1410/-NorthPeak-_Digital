@@ -44,9 +44,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
         tabIndex={0}
         className={cn(
           'group flex flex-col justify-between h-full bg-surface border rounded-card p-8 md:p-10 transition-all duration-300 relative outline-none focus-ring',
-          plan.featured
-            ? 'border-border/85 shadow-premium-lg'
-            : 'border-border/60 shadow-premium',
+          plan.featured ? 'border-border/85 shadow-premium-lg' : 'border-border/60 shadow-premium',
           'hover:border-accent/40 focus-visible:border-accent/40'
         )}
         aria-label={`${plan.name} pricing plan: ${plan.price}`}
@@ -65,9 +63,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
               </div>
             )}
             {/* Plan Name */}
-            <h3 className="font-display text-2xl font-semibold text-primary mb-2">
-              {plan.name}
-            </h3>
+            <h3 className="font-display text-2xl font-semibold text-primary mb-2">{plan.name}</h3>
             {/* Tagline */}
             <p className="font-sans text-xs text-secondary leading-relaxed min-h-[32px]">
               {plan.tagline}

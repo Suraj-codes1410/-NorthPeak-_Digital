@@ -14,7 +14,9 @@ export interface FormFieldProps {
   placeholder?: string;
   disabled?: boolean;
   value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => void;
   name?: string;
   rows?: number;
   children?: React.ReactNode;
@@ -67,11 +69,9 @@ export const FormField = React.forwardRef<
             disabled: child.props.disabled || disabled,
             className: cn(inputStyles, child.props.className),
             'aria-invalid': error ? 'true' : undefined,
-            'aria-describedby': cn(
-              error && errorId,
-              helperText && helperId,
-              child.props['aria-describedby']
-            ) || undefined,
+            'aria-describedby':
+              cn(error && errorId, helperText && helperId, child.props['aria-describedby']) ||
+              undefined,
             ref: (children as any).ref || ref,
             ...props,
           });
@@ -95,11 +95,7 @@ export const FormField = React.forwardRef<
 
       if (type === 'textarea') {
         return (
-          <textarea
-            ref={ref as React.Ref<HTMLTextAreaElement>}
-            rows={rows}
-            {...commonProps}
-          />
+          <textarea ref={ref as React.Ref<HTMLTextAreaElement>} rows={rows} {...commonProps} />
         );
       }
 
@@ -142,13 +138,7 @@ export const FormField = React.forwardRef<
         );
       }
 
-      return (
-        <input
-          ref={ref as React.Ref<HTMLInputElement>}
-          type={type}
-          {...commonProps}
-        />
-      );
+      return <input ref={ref as React.Ref<HTMLInputElement>} type={type} {...commonProps} />;
     };
 
     return (
@@ -158,10 +148,14 @@ export const FormField = React.forwardRef<
           className="block font-mono text-[10px] font-semibold uppercase tracking-widest text-secondary mb-1.5 select-none"
         >
           {label}
-          {required && <span className="text-gold ml-1" aria-hidden="true">*</span>}
+          {required && (
+            <span className="text-gold ml-1" aria-hidden="true">
+              *
+            </span>
+          )}
         </label>
         {renderInput()}
-        
+
         {/* Animated Error Block */}
         <AnimatePresence>
           {error && (

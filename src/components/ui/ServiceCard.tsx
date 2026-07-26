@@ -48,9 +48,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
           {/* Text Details */}
           <div className="space-y-3">
-            <h3 className="font-display text-xl font-medium text-primary">
-              {service.title}
-            </h3>
+            <h3 className="font-display text-xl font-medium text-primary">{service.title}</h3>
             <p className="font-sans text-sm text-secondary leading-relaxed max-w-[28ch]">
               {service.description}
             </p>

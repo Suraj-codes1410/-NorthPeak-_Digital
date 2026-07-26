@@ -75,13 +75,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </svg>
         )}
         {!isLoading && leftIcon && (
-          <span className="mr-2 inline-flex items-center justify-center transition-transform duration-200 group-hover:-translate-x-0.5" aria-hidden="true">
+          <span
+            className="mr-2 inline-flex items-center justify-center transition-transform duration-200 group-hover:-translate-x-0.5"
+            aria-hidden="true"
+          >
             {leftIcon}
           </span>
         )}
         <span>{children}</span>
         {!isLoading && rightIcon && (
-          <span className="ml-2 inline-flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true">
+          <span
+            className="ml-2 inline-flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5"
+            aria-hidden="true"
+          >
             {rightIcon}
           </span>
         )}

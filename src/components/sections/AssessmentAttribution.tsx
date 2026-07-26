@@ -16,7 +16,8 @@ export const AssessmentAttribution: React.FC = () => {
           Digital Heroes Evaluation Task
         </h3>
         <p className="font-sans text-xs text-secondary max-w-md mx-auto leading-relaxed">
-          This digital interface was designed and engineered as a front-end coding submission, showcasing a modular, high-fidelity Scandinavian editorial design system.
+          This digital interface was designed and engineered as a front-end coding submission,
+          showcasing a modular, high-fidelity Scandinavian editorial design system.
         </p>
       </div>
     </SectionWrapper>

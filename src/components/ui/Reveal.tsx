@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { fadeUpVariants, fadeDownVariants, fadeLeftVariants, fadeRightVariants, scaleInVariants } from '../../lib/motion';
+import {
+  fadeUpVariants,
+  fadeDownVariants,
+  fadeLeftVariants,
+  fadeRightVariants,
+  scaleInVariants,
+} from '../../lib/motion';
 
 interface RevealProps {
   children: React.ReactNode;

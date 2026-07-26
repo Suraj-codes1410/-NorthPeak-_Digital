@@ -4,7 +4,8 @@ export const pricingPlans: Plan[] = [
   {
     name: 'Basecamp',
     price: '$2,999',
-    tagline: 'Ideal for early-stage teams looking to launch a bespoke, high-performance web experience.',
+    tagline:
+      'Ideal for early-stage teams looking to launch a bespoke, high-performance web experience.',
     featured: false,
     ctaText: 'Book Discovery Call',
     features: [
@@ -34,7 +35,8 @@ export const pricingPlans: Plan[] = [
   {
     name: 'Summit',
     price: 'Custom',
-    tagline: 'Full enterprise-level product planning, audit alignment, and front-end scaling support.',
+    tagline:
+      'Full enterprise-level product planning, audit alignment, and front-end scaling support.',
     featured: false,
     ctaText: 'Request Proposal',
     features: [
@@ -51,6 +53,8 @@ export const pricingPlans: Plan[] = [
 export const pricingHeader = {
   eyebrow: 'PICK YOUR ROUTE',
   heading: 'Choose the engagement that fits your climb.',
-  description: 'Each engagement is designed around different project scopes while maintaining the same attention to craftsmanship and engineering quality.',
-  bottomNote: "Every engagement begins with a collaborative discovery session to ensure we're solving the right problem.",
+  description:
+    'Each engagement is designed around different project scopes while maintaining the same attention to craftsmanship and engineering quality.',
+  bottomNote:
+    "Every engagement begins with a collaborative discovery session to ensure we're solving the right problem.",
 };

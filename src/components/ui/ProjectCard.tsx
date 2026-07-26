@@ -84,7 +84,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           >
             <line x1="30" y1="90" x2="170" y2="90" stroke="currentColor" strokeWidth="0.5" />
             <line x1="30" y1="30" x2="30" y2="90" stroke="currentColor" strokeWidth="0.5" />
-            <path d="M 30,80 L 70,70 L 110,40 L 150,50 L 170,20" stroke="currentColor" strokeWidth="1.25" />
+            <path
+              d="M 30,80 L 70,70 L 110,40 L 150,50 L 170,20"
+              stroke="currentColor"
+              strokeWidth="1.25"
+            />
             <circle cx="110" cy="40" r="3" fill="#2563EB" />
             <circle cx="170" cy="20" r="3.5" fill="#C8A64D" />
           </svg>

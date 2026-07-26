@@ -8,10 +8,7 @@ import { useEffect, useState } from 'react';
  * @param options Optional custom configurations for the IntersectionObserver.
  * @returns The ID of the currently active section.
  */
-export function useScrollSpy(
-  sectionIds: string[],
-  options?: IntersectionObserverInit
-): string {
+export function useScrollSpy(sectionIds: string[], options?: IntersectionObserverInit): string {
   const [activeId, setActiveId] = useState<string>('');
 
   useEffect(() => {

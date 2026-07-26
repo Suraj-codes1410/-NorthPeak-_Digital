@@ -10,11 +10,7 @@ import { useEffect, useState, useRef } from 'react';
  * @param startValue Starting numerical value.
  * @returns An array containing the formatted current count string and the ref to attach to the observed DOM element.
  */
-export function useCountUp(
-  endValueStr: string,
-  duration = 1500,
-  startValue = 0
-) {
+export function useCountUp(endValueStr: string, duration = 1500, startValue = 0) {
   const [count, setCount] = useState(startValue);
   const [isIntersecting, setIsIntersecting] = useState(false);
   const elementRef = useRef<HTMLElement | null>(null);

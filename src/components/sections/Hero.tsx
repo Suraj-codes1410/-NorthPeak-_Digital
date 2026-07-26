@@ -58,10 +58,7 @@ export const Hero: React.FC = () => {
             >
               {heroContent.primaryCTA.label}
             </Button>
-            <Button
-              variant="secondary"
-              onClick={handleSecondaryClick}
-            >
+            <Button variant="secondary" onClick={handleSecondaryClick}>
               {heroContent.secondaryCTA.label}
             </Button>
           </div>

@@ -3,7 +3,8 @@ import type { HeroContent } from '../types/content';
 export const heroContent: HeroContent = {
   eyebrow: 'WEB DESIGN & ENGINEERING',
   headline: 'Architecting refined digital experiences for forward-thinking brands.',
-  subheadline: 'NorthPeak Digital is a premium digital collective blending quiet Scandinavian design principles with clean, high-fidelity creative engineering.',
+  subheadline:
+    'NorthPeak Digital is a premium digital collective blending quiet Scandinavian design principles with clean, high-fidelity creative engineering.',
   primaryCTA: {
     label: 'Explore Portfolio',
     href: '#work',

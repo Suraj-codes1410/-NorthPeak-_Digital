@@ -7,7 +7,12 @@
     @apply bg-background text-primary font-sans antialiased selection:bg-accent/10 selection:text-accent min-h-screen;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display text-primary tracking-tight;
   }
 }
@@ -22,7 +27,7 @@
     stroke-dashoffset: 1200;
     animation: drawContour 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
-  
+
   .animate-contour-draw-slow {
     stroke-dasharray: 1200;
     stroke-dashoffset: 1200;
@@ -66,7 +71,7 @@
     stroke-dashoffset: 0 !important;
     stroke-dasharray: none !important;
   }
-  
+
   .animate-fade-in-up {
     opacity: 1 !important;
     transform: none !important;

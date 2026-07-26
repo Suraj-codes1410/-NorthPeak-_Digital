@@ -148,7 +148,10 @@ export const Navbar: React.FC = () => {
             className="font-display font-medium text-xl md:text-2xl text-primary tracking-tight select-none focus-ring rounded-md"
             aria-label="NorthPeak homepage"
           >
-            NorthPeak<span className="text-gold font-sans font-normal ml-0.5" aria-hidden="true">△</span>
+            NorthPeak
+            <span className="text-gold font-sans font-normal ml-0.5" aria-hidden="true">
+              △
+            </span>
           </a>
 
           {/* Desktop Navigation Links */}
