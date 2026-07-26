@@ -34,12 +34,7 @@ export const Hero: React.FC = () => {
     <SectionWrapper id="hero" className="relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full min-h-[60vh]">
         {/* Left column (55%) */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={shouldReduceMotion ? {} : fadeUpVariants(16, DURATIONS.reveal)}
-          className="lg:col-span-7 flex flex-col items-start text-left"
-        >
+        <div className="lg:col-span-7 flex flex-col items-start text-left">
           <Eyebrow className="mb-4">{heroContent.eyebrow}</Eyebrow>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-primary leading-[1.1] mb-6 max-w-2xl">
@@ -50,7 +45,13 @@ export const Hero: React.FC = () => {
             {heroContent.subheadline}
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 mb-12 sm:mb-16">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={shouldReduceMotion ? {} : fadeUpVariants(8, DURATIONS.reveal)}
+            transition={{ delay: 0.05 }}
+            className="flex flex-wrap items-center gap-4 mb-12 sm:mb-16"
+          >
             <Button
               variant="primary"
               onClick={handlePrimaryClick}
@@ -61,10 +62,16 @@ export const Hero: React.FC = () => {
             <Button variant="secondary" onClick={handleSecondaryClick}>
               {heroContent.secondaryCTA.label}
             </Button>
-          </div>
+          </motion.div>
 
           {/* Trust Row */}
-          <div className="flex flex-wrap items-center gap-6 md:gap-8 pt-8 border-t border-border/50 w-full">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={shouldReduceMotion ? {} : fadeUpVariants(8, DURATIONS.reveal)}
+            transition={{ delay: 0.15 }}
+            className="flex flex-wrap items-center gap-6 md:gap-8 pt-8 border-t border-border/50 w-full"
+          >
             {heroContent.trustStats.map((stat, idx) => (
               <React.Fragment key={stat.label}>
                 {idx > 0 && (
@@ -80,8 +87,8 @@ export const Hero: React.FC = () => {
                 </div>
               </React.Fragment>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Right column (45%) */}
         <motion.div
